@@ -1,0 +1,46 @@
+<p>
+  register works!
+</p>
+
+<div class="w3-display-container w3-opacity-min" id="home">
+  <div class="w3-container  w3-padding-64 w3-center" >
+    <div class="container w3-sand" id="sandbox">
+      <div class="w3-container w3-blue">
+        <h3>Register</h3>
+      </div>
+
+      <form name="register" >
+
+        <div class="row">
+          <div class="col-25">
+            <label for="username">User Name</label>
+          </div>
+          <div class="col-75">
+            <input type="email" id="username" name="username"  required placeholder="Your email..">
+          </div>
+        </div>
+        <div class="row">
+          <div id="emailClientMessage"></div>
+        </div>
+        <div class="row">
+          <div class="col-25">
+            <label for="password">Password</label>
+          </div>
+          <div class="col-75">
+            <input type="password" id="password" name="password"  required placeholder="Your password..">
+          </div>
+        </div>
+        <div class="row">
+          <div  id="passwordClientMessage"></div>
+        </div>
+        <div class="row" id="submitbox">
+
+
+          <a href="javascript:void(0);" id="regBtn" class="w3-btn w3-green disabled"> Register
+          </a>
+        </div>
+      </form>
+      <p id="msg"></p>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,143 @@
+<div class="w3-top w3-black">
+  <div class="w3-bar" id="myNavbar" >
+    <a class="w3-bar-item w3-button w3-hover-black w3-hide-medium w3-hide-large w3-right" href="javascript:void(0);" (click)="toggleFunction()" title="Toggle Navigation Menu">
+      <i class="fa fa-bars"></i>
+    </a>
+    <a href="home" class="w3-bar-item w3-button"><i class="fa fa-home"></i> HOME</a>
+    <a href="" class="w3-bar-item w3-button "><i class="fa fa-edit"></i> REGISTER</a>
+    <a href="login" class="w3-bar-item w3-button "><i class="fa fa-user"></i> LOGIN</a>
+    <a href="personalProfile" class="w3-bar-item w3-button "><i class="fa fa-th"></i> PERSONAL PROFILE</a>
+    <a href="searchProfile" class="w3-bar-item w3-button "><i class="fa fa-search"></i> SEARCH PROFILE</a>
+    <p id="logout">
+      <a href='/logout' class="w3-bar-item w3-button w3-hide-small w3-right" ><i class="fa fa-sign-in"></i>  LOGOUT</a>
+    </p>
+    <p id="userLogInfo" class="w3-bar-item w3-hide-small w3-right">
+
+  </div>
+  <!-- Navbar on small screens -->
+  <div id="navDemo" class="w3-bar-block w3-white w3-hide w3-hide-large w3-hide-medium">
+    <a href="" class="w3-bar-item w3-button" (click)="toggleFunction()">REGISTER</a>
+    <a href="login" class="w3-bar-item w3-button" (click)="toggleFunction()">LOGIN</a>
+  </div>
+</div>
+<!--Main Component-->
+<div class="w3-display-container w3-opacity-min" id="home">
+  <div class="w3-container  w3-padding-64 w3-center" >
+    <div class="container w3-sand" id="sandbox">
+      <div class="w3-container w3-blue">
+        <h3>Personal Profile</h3>
+      </div>
+
+      <form  [formGroup]="personalProfileForm" (ngSubmit)="onSubmit()"
+             method="post" id="profileForm">
+
+        <div class="form-group" [ngClass]="{'has-error': invalidFirstName() }">
+          <!--<div [ng-class]="{'has-success': registerForm.username.$valid, 'has-error': registerForm.email.$invalid}">
+          -->
+          <div class="row">
+            <div class="col-25">
+              <label for="firstName" class="control-label">First Name</label>
+            </div>
+            <div class="col-75">
+              <input type="text" class="form-control"  id="firstName" name="firstName" required="required"
+                      formControlName="firstName" placeholder="Your First Name.."/>
+            </div>
+          </div>
+          <div clas="row">
+            <p id="firstName_error" class="help-block" *ngIf="invalidFirstName()">{{this.serviceErrors.firstName||"FirstName maximum 20 chars only!"}}</p>
+
+          </div>
+        </div>
+
+        <div class="form-group" [ngClass]="{'has-error': invalidLastName() }">
+          <div class="row">
+          <div class="col-25">
+            <label for="lastName" class="control-label">Last Name</label>
+          </div>
+          <div class="col-75">
+            <input type="text" id="lastName" name="lastName" class="form-control" required="required"
+                   formControlName="lastName" placeholder="Your last name.." />
+          </div>
+        </div>
+
+        <div clas="row">
+          <p id="lastName_error" class="help-block" *ngIf="invalidLastName()">{{this.serviceErrors.lastName||"Invalid Lastname"}}</p>
+        </div>
+        </div>
+
+        <div class="form-group">
+        <div class="row">
+          <div class="col-25">
+            <label for="profileImageUpload" class="control-label">Profile Image</label>
+          </div>
+          <div class="col-75">
+            <input type="file" name="ImageUpload" id="ImageUpload" class="form-control" formControlName="ImageUpload" hidden="hidden">
+            <button type="button" id="profileImageUpload" class="form-control">Choose File</button>
+            <span id="profileImageText" class="form-control">No file Choose, yet</span>
+          </div>
+        </div>
+        </div>
+
+        <div class="form-group">
+        <div class="row">
+          <div class="col-25">
+            <label for="interest" class="control-label">Interests</label>
+          </div>
+          <div class="col-75">
+            <input type="text" id="interest" name="interest" class="form-control"
+                   formControlName="interest"  placeholder="Your interest.." >
+          </div>
+        </div>
+        </div>
+
+
+        <div class="form-group">
+        <div class="row">
+          <div class="col-25">
+            <label for="state" class="control-label">State</label>
+          </div>
+          <div class="col-75">
+            <select  name="option" id="state" class="form-control"
+                     formControlName="state">
+              <option value="" disabled selected>Choose your option</option>
+              <option value="Illinois">Illinois</option>
+              <option value="Indiana">Indiana</option>
+              <option value="Iowa">Iowa</option>
+              <option value="Kansas">Kansas</option>
+              <option value="Michigan">Michigan</option>
+              <option value="Minnesota">Minnesota</option>
+              <option value="Missouri">Missouri</option>
+              <option value="Nebraska">Nebraska</option>
+              <option value="Wisconsin">Wisconsin</option>
+            </select>
+          </div>
+        </div>
+        </div>
+
+
+         <div class="form-group" id="submitbox">
+           <button type="submit" id="updateBtn" class="w3-btn w3-green">Update Profile</button>
+           <div class="divider"></div>
+           <input type="reset" value="Reset" class="w3-btn w3-amber"/>
+         </div>
+       </form>
+     </div>
+   </div>
+ </div>
+
+ <!--Footer-->
+<footer class="w3-bottom w3-center w3-black">
+  <div class="w3-xlarge w3-section">
+    <i class="fa fa-facebook-official w3-hover-opacity"></i>
+    <div class="divider"></div>
+    <i class="fa fa-instagram w3-hover-opacity"></i>
+    <div class="divider"></div>
+    <i class="fa fa-snapchat w3-hover-opacity"></i>
+    <div class="divider"></div>
+    <i class="fa fa-pinterest-p w3-hover-opacity"></i>
+    <div class="divider"></div>
+    <i class="fa fa-twitter w3-hover-opacity"></i>
+    <div class="divider"></div>
+    <i class="fa fa-linkedin w3-hover-opacity"></i>
+  </div>
+</footer>

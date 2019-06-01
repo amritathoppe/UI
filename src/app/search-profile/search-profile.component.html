@@ -1,0 +1,66 @@
+<<div class="w3-top w3-black">
+  <div class="w3-bar" id="myNavbar" >
+    <a class="w3-bar-item w3-button w3-hover-black w3-hide-medium w3-hide-large w3-right" href="javascript:void(0);" (click)="toggleFunction()" title="Toggle Navigation Menu">
+      <i class="fa fa-bars"></i>
+    </a>
+    <a href="home" class="w3-bar-item w3-button"><i class="fa fa-home"></i> HOME</a>
+    <a href="" class="w3-bar-item w3-button "><i class="fa fa-edit"></i> REGISTER</a>
+    <a href="login" class="w3-bar-item w3-button "><i class="fa fa-user"></i> LOGIN</a>
+    <a href="personalProfile" class="w3-bar-item w3-button "><i class="fa fa-th"></i> PERSONAL PROFILE</a>
+    <a href="searchProfile" class="w3-bar-item w3-button "><i class="fa fa-search"></i> SEARCH PROFILE</a>
+  </div>
+  <!-- Navbar on small screens -->
+  <div id="navDemo" class="w3-bar-block w3-white w3-hide w3-hide-large w3-hide-medium">
+    <a href="" class="w3-bar-item w3-button" (click)="toggleFunction()">REGISTER</a>
+    <a href="login" class="w3-bar-item w3-button" (click)="toggleFunction()">LOGIN</a>
+  </div>
+</div>
+
+<!--Main Content-->
+<div class="w3-display-container w3-opacity-min">
+
+  <div class="w3-container  w3-padding-64 w3-center" id="personalProfileContainer">
+    <!-- <form [formGroup]="searchForm" (ngSubmit)="onSubmit()"  method="post" id = "searchProfileForm" name = "searchProfileForm" class ="searchBar">
+     -->
+    <form [formGroup]="searchForm"  method="post" id = "searchProfileForm" name = "searchProfileForm" class ="searchBar">
+      <!--<div class="form-group" hidden id="userHidden"/> -->
+      <h3>Search By</h3>
+      <p class="form-group" id="searchPara">
+        <input class="w3-radio" type="radio"  name="searchBy" value="interests" [checked]="true"  class="form-control"  formControlName="searchBy">
+        <label class="control-label">Interests</label>
+        <input class="w3-radio" type="radio" name="searchBy" value="state" class="form-control"  formControlName="searchBy">
+        <label class="control-label">Locality</label>
+      </p>
+      <div class="form-group" [ngClass]="{'has-error': invalidSearch() }">
+      <input type="text" placeholder="Search.." id="searchTerm" class="form-control"  formControlName="searchTerm">
+
+       <a href="javascript:void(0);" class="w3-btn w3-green" (click)="ajaxSearchProfileForm();"> <i class="fa fa-search"></i>
+       </a>
+        <p class="w3-row" id="searchTerm_error" class="help-block" *ngIf="invalidSearch()" >{{this.serviceErrors.searchTerm||"Enter Search Term"}}</p>
+      </div>
+      <!--<a href="javascript:void(0);" class="w3-btn w3-green" onclick="ajaxSearchProfileForm();"> <i class="fa fa-search"></i>
+      </a>-->
+       <!--<input type="submit" id="regBtn" label="search" class="w3-btn w3-green fa fa-search"  class="form-control"  >
+     </input>-->
+    </form>
+    <p class="w3-row" id="msg"></p>
+  </div>
+
+</div>
+
+<footer class="w3-bottom w3-center w3-black">
+  <div class="w3-xlarge w3-section">
+    <i class="fa fa-facebook-official w3-hover-opacity"></i>
+    <div class="divider"></div>
+    <i class="fa fa-instagram w3-hover-opacity"></i>
+    <div class="divider"></div>
+    <i class="fa fa-snapchat w3-hover-opacity"></i>
+    <div class="divider"></div>
+    <i class="fa fa-pinterest-p w3-hover-opacity"></i>
+    <div class="divider"></div>
+    <i class="fa fa-twitter w3-hover-opacity"></i>
+    <div class="divider"></div>
+    <i class="fa fa-linkedin w3-hover-opacity"></i>
+  </div>
+</footer>
+
